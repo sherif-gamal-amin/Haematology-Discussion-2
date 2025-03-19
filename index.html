@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haematology Discussion (2)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            user-select: none; /* يمنع تحديد النص */
+            -webkit-user-select: none; /* لمتصفحات WebKit مثل Chrome وSafari */
+            -moz-user-select: none; /* لمتصفح Firefox */
+            -ms-user-select: none; /* لمتصفح Internet Explorer/Edge */
+        }
+        @media print { /* إخفاء الصفحة عند الطباعة */
+            body { 
+                display: none;
+            }
+        }
+
+        .quiz-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .timer {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            display: none;
+        }
+        .incorrect {
+            color: red;
+        }
+        .correct {
+            color: green;
+        }
+        .question-result {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        img {
+            pointer-events: none; /* يمنع سحب الصور */
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Haematology Discussion (2)</h1>
+        <div class="timer" id="timer">Time remaining: 60 seconds</div>
+
+        <div class="question" id="question-1">
+            <p>1. 73-year-old woman is reviewed in the pre-op clinic prior to an elective hip replacement. Her past medical history includes polymyalgia rheumatica and ischaemic heart disease. Screening blood tests are ordered and the full blood count is reported as follows:</p>
+            <ul>
+                <li>Hb 12.9 g/dl</li>
+                <li>Plt 158 * 10 9/l</li>
+                <li>WBC 59.0 * 10 9/l</li>
+                <li>Lymphocytosis</li>
+            </ul>
+            <p>What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="Lymphoma"> Lymphoma</label>
+                <label><input type="radio" name="q1" value="Nicorandil-related lymphocytosis"> Nicorandil-related lymphocytosis</label>
+                <label><input type="radio" name="q1" value="Transient viral illness"> Transient viral illness</label>
+                <label><input type="radio" name="q1" value="Chronic lymphocytic leukaemia"> Chronic lymphocytic leukaemia</label>
+                <label><input type="radio" name="q1" value="Secondary to steroid use"> Secondary to steroid use</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-2">
+            <p>2. Chronic lymphocytic leukaemia is mostly due to a:</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="Polyclonal proliferation of B-cell lymphocytes"> Polyclonal proliferation of B-cell lymphocytes</label>
+                <label><input type="radio" name="q2" value="Monoclonal proliferation of B-cell lymphocytes"> Monoclonal proliferation of B-cell lymphocytes</label>
+                <label><input type="radio" name="q2" value="Monoclonal proliferation of large granular lymphocytes"> Monoclonal proliferation of large granular lymphocytes</label>
+                <label><input type="radio" name="q2" value="Monoclonal proliferation of T-cell lymphocytes"> Monoclonal proliferation of T-cell lymphocytes</label>
+                <label><input type="radio" name="q2" value="Polyclonal proliferation of T-cell lymphocytes"> Polyclonal proliferation of T-cell lymphocytes</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-3">
+            <p>3. 72-year-old woman is found to have a marked lymphocytosis associated with smudge cells on the blood film. A diagnosis of chronic lymphocytic leukaemia is suspected. Which one of the following is the investigation of choice?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="immunophenotyping"> immunophenotyping</label>
+                <label><input type="radio" name="q3" value="Bone marrow aspiration"> Bone marrow aspiration</label>
+                <label><input type="radio" name="q3" value="Protein electrophoresis"> Protein electrophoresis</label>
+                <label><input type="radio" name="q3" value="White cell scan"> White cell scan</label>
+                <label><input type="radio" name="q3" value="Bone marrow trephine"> Bone marrow trephine</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-4">
+            <p>4. Which of the following is a good prognostic factor in chronic lymphocytic leukaemia?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="Female sex"> Female sex</label>
+                <label><input type="radio" name="q4" value="Lymphocyte doubling time <12 months"> Lymphocyte doubling time <12 months</label>
+                <label><input type="radio" name="q4" value="CD38 expression positive"> CD38 expression positive</label>
+                <label><input type="radio" name="q4" value="Age > 70 years"> Age > 70 years</label>
+                <label><input type="radio" name="q4" value="Raised LDH"> Raised LDH</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-5">
+            <p>5. 74-year-old woman with a past history of chronic lymphocytic leukaemia presents with lethargy. The following blood results are obtained:</p>
+            <ul>
+                <li>Hb 7.9 g/dl</li>
+                <li>Plt 158 * 10 9/l</li>
+                <li>WCC 44.0 * 10 9/l</li>
+                <li>Blood film: normochromic, normocytic anaemia</li>
+            </ul>
+            <p>What complication has most likely occurred?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="Paroxysmal nocturnal haemoglobinuria"> Paroxysmal nocturnal haemoglobinuria</label>
+                <label><input type="radio" name="q5" value="Microangiopathic haemolytic anaemia"> Microangiopathic haemolytic anaemia</label>
+                <label><input type="radio" name="q5" value="Sideroblastic anaemia"> Sideroblastic anaemia</label>
+                <label><input type="radio" name="q5" value="Warm autoimmune haemolytic anaemia"> Warm autoimmune haemolytic anaemia</label>
+                <label><input type="radio" name="q5" value="Cold autoimmune haemolytic anaemia"> Cold autoimmune haemolytic anaemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-6">
+            <p>6. 77-year-old man with a history of chronic lymphocytic leukaemia is admitted to the Acute Medical Unit with pneumonia. This is his fourth admission for pneumonia in the past six months. Which one of the following factors is most likely to be responsible?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="Hypersplenism"> Hypersplenism</label>
+                <label><input type="radio" name="q6" value="Decreased lymphocyte survival"> Decreased lymphocyte survival</label>
+                <label><input type="radio" name="q6" value="Hypogammaglobulinaemia"> Hypogammaglobulinaemia</label>
+                <label><input type="radio" name="q6" value="Transformation to high-grade lymphoma"> Transformation to high-grade lymphoma</label>
+                <label><input type="radio" name="q6" value="Immature lymphocytes"> Immature lymphocytes</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-7">
+            <p>7. 65-year-old woman is reviewed. She is on the waiting list for a varicose vein operation but during the preoperative assessment was noted to have a raised lymphocyte count. She reports feeling well currently and clinical examination is normal. Her bloods were as follows:</p>
+            <ul>
+                <li>Hb 11.8 g/dl</li>
+                <li>Plt 184 * 10 9/l</li>
+                <li>WBC 21.2 * 10 9/l</li>
+            </ul>
+            <p>There are no previous bloods to compare these results with. Following referral to haematology a diagnosis of chronic lymphocytic leukaemia was made. What is the most appropriate management?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="No treatment + cancel operation"> No treatment + cancel operation</label>
+                <label><input type="radio" name="q7" value="No treatment + go ahead with operation"> No treatment + go ahead with operation</label>
+                <label><input type="radio" name="q7" value="Chlorambucil + cancel operation"> Chlorambucil + cancel operation</label>
+                <label><input type="radio" name="q7" value="Fludarabine + go ahead with operation but with quinolone prophylaxis"> Fludarabine + go ahead with operation but with quinolone prophylaxis</label>
+                <label><input type="radio" name="q7" value="Alemtuzumab + cancel operation"> Alemtuzumab + cancel operation</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-8">
+            <p>8. Which one of the following is not an indication for treatment in chronic lymphocytic leukaemia?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="Massive splenomegaly"> Massive splenomegaly</label>
+                <label><input type="radio" name="q8" value="Platelet count of 77 * 10 9/l"> Platelet count of 77 * 10 9/l</label>
+                <label><input type="radio" name="q8" value="Night sweats"> Night sweats</label>
+                <label><input type="radio" name="q8" value="Lymphocyte count of 65 * 10 9/l"> Lymphocyte count of 65 * 10 9/l</label>
+                <label><input type="radio" name="q8" value="Extreme fatigue"> Extreme fatigue</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-9">
+            <p>9. 71-year-old woman with no significant past medical history is investigated for lymphocytosis. She has recently lost 7kg in weight and complains of lethargy. The following blood results are obtained:</p>
+            <ul>
+                <li>Hb 9.8 g/dl</li>
+                <li>Plt 104</li>
+                <li>WBC 70.3</li>
+                <li>Blood film: Lymphocytosis. Smudge cells seen</li>
+            </ul>
+            <p>Four months previously her white cell count was 30.5. What is the most appropriate management?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="Imatinib"> Imatinib</label>
+                <label><input type="radio" name="q9" value="Chlorambucil"> Chlorambucil</label>
+                <label><input type="radio" name="q9" value="No treatment, monitor full blood count"> No treatment, monitor full blood count</label>
+                <label><input type="radio" name="q9" value="Fludarabine, cyclophosphamide and rituximab"> Fludarabine, cyclophosphamide and rituximab</label>
+                <label><input type="radio" name="q9" value="Allogeneic stem cell transplantation"> Allogeneic stem cell transplantation</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-10">
+            <p>10. 55 years old man presents with 6 months history of weight loss, tiredness and night sweats. Physical examination shows hepatosplenomegaly but no lymphadenopathy. Blood film shows considerable increase in white cell count with all stages of myeloid maturation presentation together with thrombocytosis, basophilia, eosinophilia. What is your diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="Acute lymphoblastic leukemia"> Acute lymphoblastic leukemia</label>
+                <label><input type="radio" name="q10" value="Acute myeloid leukemia"> Acute myeloid leukemia</label>
+                <label><input type="radio" name="q10" value="Chronic myeloid leukemia"> Chronic myeloid leukemia</label>
+                <label><input type="radio" name="q10" value="Hodgkin lymphoma"> Hodgkin lymphoma</label>
+                <label><input type="radio" name="q10" value="Leukemoid reaction"> Leukemoid reaction</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-11">
+            <p>11. A patient is investigated for lymphocytosis. Cytogenetic analysis shows the presence of the following translocation t (9, 22). Which haematological malignancy is most strongly associated with this translocation?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="Chronic myeloid leukaemia"> Chronic myeloid leukaemia</label>
+                <label><input type="radio" name="q11" value="Acute promyelocytic leukaemia"> Acute promyelocytic leukaemia</label>
+                <label><input type="radio" name="q11" value="Acute lymphoblastic leukaemia"> Acute lymphoblastic leukaemia</label>
+                <label><input type="radio" name="q11" value="Burkitt's lymphoma"> Burkitt's lymphoma</label>
+                <label><input type="radio" name="q11" value="Mantle cell lymphoma"> Mantle cell lymphoma</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-12">
+            <p>12. Hepatosplenomegaly with lymphadenopathy is found in all EXCEPT :-</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="Acute lymphatic leukemia"> Acute lymphatic leukemia</label>
+                <label><input type="radio" name="q12" value="Lymphoma"> Lymphoma</label>
+                <label><input type="radio" name="q12" value="Chronic myeloid leukemia"> Chronic myeloid leukemia</label>
+                <label><input type="radio" name="q12" value="Disseminated tuberculosis"> Disseminated tuberculosis</label>
+                <label><input type="radio" name="q12" value="Infectious mononucleosis"> Infectious mononucleosis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-13">
+            <p>13. 62-year-old man reports early satiety, fatigue, and generally feeling unwell. On examination he has a large spleen, appears pale, and the rest of the examination is normal. His blood count is abnormal; the WBC is 50,000/mL with increased mature granulocytes, haemoglobin 9.5 g/dL, and platelets 450,000/mL. Which of the following cytogenetic changes is most characteristic of his condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="deletion of chromosome 14"> deletion of chromosome 14</label>
+                <label><input type="radio" name="q13" value="reciprocal translocation of 9 and 22 (Philadelphia chromosome)"> reciprocal translocation of 9 and 22 (Philadelphia chromosome)</label>
+                <label><input type="radio" name="q13" value="translocation of the renal artery stenosis (RAS) oncogene"> translocation of the renal artery stenosis (RAS) oncogene</label>
+                <label><input type="radio" name="q13" value="trisomy 21"> trisomy 21</label>
+                <label><input type="radio" name="q13" value="translocation of 8–14"> translocation of 8–14</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-14">
+            <p>14. 50-year-old woman is investigated for weight loss and anaemia. She has no past medical history of note. Clinical examination reveals splenomegaly associated with pale conjunctiva. A full blood count is reported as follows:<br>
+            Hb 10.9 g/dl<br>
+            Platelets 702<br>
+            WCC 56.6<br>
+            Film: Leucocytosis noted, All stages of granulocyte maturation seen.<br>
+            Given the likely diagnosis, what is the most appropriate treatment?</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="Chlorambucil"> Chlorambucil</label>
+                <label><input type="radio" name="q14" value="Stem cell transplantation"> Stem cell transplantation</label>
+                <label><input type="radio" name="q14" value="Rituximab"> Rituximab</label>
+                <label><input type="radio" name="q14" value="Repeat full blood count in 3 months"> Repeat full blood count in 3 months</label>
+                <label><input type="radio" name="q14" value="Imatinib"> Imatinib</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-15">
+            <p>15. 52-year-old man with a history of anaemia and abdominal discomfort is diagnosed as having chronic myeloid leukaemia. What is the mechanism of action of imatinib (BCR-ABL fusion protein)?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="EGF receptor antagonist"> EGF receptor antagonist</label>
+                <label><input type="radio" name="q15" value="Tyrosine kinase inhibitor"> Tyrosine kinase inhibitor</label>
+                <label><input type="radio" name="q15" value="Anti-CD52 monoclonal antibody"> Anti-CD52 monoclonal antibody</label>
+                <label><input type="radio" name="q15" value="Anti-CD23 monoclonal antibody"> Anti-CD23 monoclonal antibody</label>
+                <label><input type="radio" name="q15" value="p53 inhibitor"> p53 inhibitor</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-16">
+            <p>16. Which of the following is the most likely effect of insulin at the cellular receptor level?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="stimulating tyrosine kinase"> stimulating tyrosine kinase</label>
+                <label><input type="radio" name="q16" value="binding to ion channels"> binding to ion channels</label>
+                <label><input type="radio" name="q16" value="binding to intracellular erb A receptors"> binding to intracellular erb A receptors</label>
+                <label><input type="radio" name="q16" value="stimulating guanylate cyclase"> stimulating guanylate cyclase</label>
+                <label><input type="radio" name="q16" value="activating G-proteins"> activating G-proteins</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-17">
+            <p>17. 45-year-old man presents to you reporting he has become increasingly worried about his lack of energy in the last 2 weeks. He mentions he has been increasingly tired, sleeping for long periods and has suffered from fevers unresponsive to paracetamol. He became increasingly worried when he noticed bleeding originating from his gums. A blood film shows auer rods, hypogranular neutrophils and stains with Sudan black B. The most likely diagnosis is:</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="Acute lymphoblastic leukaemia"> Acute lymphoblastic leukaemia</label>
+                <label><input type="radio" name="q17" value="DiGeorge syndrome"> DiGeorge syndrome</label>
+                <label><input type="radio" name="q17" value="Disseminated intravascular coagulation"> Disseminated intravascular coagulation</label>
+                <label><input type="radio" name="q17" value="Acute myeloid leukaemia"> Acute myeloid leukaemia</label>
+                <label><input type="radio" name="q17" value="Afibrinogenemia"> Afibrinogenemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-18">
+            <p>18. 34-year-old man presents with symptoms of fatigue, weakness, nose bleeds, and palpitations with exertion. On examination he is pale, blood pressure 110/70 mm Hg, pulse 100/min, heart sounds are normal, lungs are clear, and he has multiple petechiae and bruises on his legs. His blood count is abnormal: haemoglobin 8.5 g/dL, white blood cells (WBCs) 4000/mL, platelets 50,000/mL, and there are blast cells in the peripheral blood. He is diagnosed with acute promyelocytic leukaemia (AML-M3). Which of the following is a characteristic of this acute myelogenous leukaemia?</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="peak incidence in childhood"> peak incidence in childhood</label>
+                <label><input type="radio" name="q18" value="high leukocyte alkaline phosphatase"> high leukocyte alkaline phosphatase</label>
+                <label><input type="radio" name="q18" value="Philadelphia chromosome"> Philadelphia chromosome</label>
+                <label><input type="radio" name="q18" value="Auer bodies in blast cells"> Auer bodies in blast cells</label>
+                <label><input type="radio" name="q18" value="response to vincristine and prednisone"> response to vincristine and prednisone</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-19">
+            <p>19. 54-year-old man is diagnosed as having acute myeloid leukaemia. What is the single most important test in determining his prognosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="Gene-expression profiling"> Gene-expression profiling</label>
+                <label><input type="radio" name="q19" value="White cell count at diagnosis"> White cell count at diagnosis</label>
+                <label><input type="radio" name="q19" value="Immunophenotyping"> Immunophenotyping</label>
+                <label><input type="radio" name="q19" value="Lactate dehydrogenase"> Lactate dehydrogenase</label>
+                <label><input type="radio" name="q19" value="Cytogenetics"> Cytogenetics</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-20">
+            <p>20. 56-year-old man is investigated for lethargy. A full blood count shows the following:<br>
+            Hb 8.6 g/dl<br>
+            Platelets 42 * 10 9/l<br>
+            WBC 36.4 * 10 9/l<br>
+            Blood film shows 30% myeloid blasts with Auer rods.<br>
+            Given the likely diagnosis, which one of the following is associated with a good prognosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="Translocation between chromosome 9 and 14"> Translocation between chromosome 9 and 14</label>
+                <label><input type="radio" name="q20" value="Translocation between chromosome 15 and 17"> Translocation between chromosome 15 and 17</label>
+                <label><input type="radio" name="q20" value="25% blast following first course of chemotherapy"> 25% blast following first course of chemotherapy</label>
+                <label><input type="radio" name="q20" value="Deletion of chromosome 5"> Deletion of chromosome 5</label>
+                <label><input type="radio" name="q20" value="Deletion of chromosome 7"> Deletion of chromosome 7</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-21">
+            <p>21. 48-year-old man is diagnosed with acute myeloid leukaemia and cytogenetics are performed. Which one of the following is associated most with a poor prognosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="Deletions of chromosome 5"> Deletions of chromosome 5</label>
+                <label><input type="radio" name="q21" value="Translocation between chromosome 15 and 17"> Translocation between chromosome 15 and 17</label>
+                <label><input type="radio" name="q21" value="Deletions of chromosome 15"> Deletions of chromosome 15</label>
+                <label><input type="radio" name="q21" value="Translocation between chromosome 9 and 14"> Translocation between chromosome 9 and 14</label>
+                <label><input type="radio" name="q21" value="Deletions of chromosome 8"> Deletions of chromosome 8</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-22">
+            <p>22. 48 years old man is diagnosed with acute promyelocytic leukaemia. Which of the following chromosomal translocation is associated with this type of leukaemia ?</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="T (8:9)"> T (8:9)</label>
+                <label><input type="radio" name="q22" value="T (8:21)"> T (8:21)</label>
+                <label><input type="radio" name="q22" value="T (9:22)"> T (9:22)</label>
+                <label><input type="radio" name="q22" value="T (15:17)"> T (15:17)</label>
+                <label><input type="radio" name="q22" value="T (17:22)"> T (17:22)</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-23">
+            <p>23. A patient with AML develops jaundice and spiking pyrexia 3 weeks into induction chemotherapy. The patient remains pyrexial after 7 days of IV antibiotics. What is the likely diagnosis ?</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="CMV"> CMV</label>
+                <label><input type="radio" name="q23" value="Fungal infection"> Fungal infection</label>
+                <label><input type="radio" name="q23" value="Toxoplasmosis"> Toxoplasmosis</label>
+                <label><input type="radio" name="q23" value="Miliary tuberculosis"> Miliary tuberculosis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-24">
+            <p>24. Which one of the following haematological disorders is most associated with gingival hyperplasia?</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="Chronic lymphocytic leukaemia"> Chronic lymphocytic leukaemia</label>
+                <label><input type="radio" name="q24" value="Myelofibrosis"> Myelofibrosis</label>
+                <label><input type="radio" name="q24" value="Polycythaemia rubra vera"> Polycythaemia rubra vera</label>
+                <label><input type="radio" name="q24" value="Haemophilia A"> Haemophilia A</label>
+                <label><input type="radio" name="q24" value="Acute myeloblastic leukaemia"> Acute myeloblastic leukaemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-25">
+            <p>25. A young woman presents with pallor, tiredness and fatigue. Her full blood count is reported as typical of acute lymphoblastic leukaemia. Which one of the following is associated with the worst prognosis in ALL ?</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="Female sex"> Female sex</label>
+                <label><input type="radio" name="q25" value="Presentation in childhood"> Presentation in childhood</label>
+                <label><input type="radio" name="q25" value="WCC 21000 at diagnosis"> WCC 21000 at diagnosis</label>
+                <label><input type="radio" name="q25" value="Philadelphia chromosome positive"> Philadelphia chromosome positive</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-26">
+            <p>26. 17-year-old man is reviewed in the haemato-oncology multi-disciplinary meeting with a diagnosis of Acute lymphoblastic leukaemia (ALL). The results of bone marrow testing, immunophenotyping, and chromosomal analysis are reviewed. Which of the following features is associated with a poor prognosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q26" value="Hypodiploidy"> Hypodiploidy</label>
+                <label><input type="radio" name="q26" value="Precursor B ALL"> Precursor B ALL</label>
+                <label><input type="radio" name="q26" value="Translocation t(1:19)"> Translocation t(1:19)</label>
+                <label><input type="radio" name="q26" value="Trisomy 4"> Trisomy 4</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-27">
+            <p>27. 5-year-old girl presents with her parents who have become concerned about the small petechiae and ecchymoses on her skin. An abdominal examination reveals hepatosplenomegaly. You suspect an acute leukaemia. The most appropriate initial investigation for diagnosis is:</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="Chromosomal analysis of bone marrow cells"> Chromosomal analysis of bone marrow cells</label>
+                <label><input type="radio" name="q27" value="Cytochemical analysis of bone marrow cells"> Cytochemical analysis of bone marrow cells</label>
+                <label><input type="radio" name="q27" value="Direct microscopy of bone marrow cells"> Direct microscopy of bone marrow cells</label>
+                <label><input type="radio" name="q27" value="Electron microscopy"> Electron microscopy</label>
+                <label><input type="radio" name="q27" value="Flow cytometry"> Flow cytometry</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-28">
+            <p>28. A young patient presents with features of anaemia, neutropenia and thrombocytopenia. A large number of blasts are present on bone marrow biopsy. Which investigation would help differentiate between acute myeloid leukaemia (AML) and acute lymphoblastic leukaemia (ALL) ?</p>
+            <div class="options">
+                <label><input type="radio" name="q28" value="Myeloperoxidase stain"> Myeloperoxidase stain</label>
+                <label><input type="radio" name="q28" value="Sudan black B"> Sudan black B</label>
+                <label><input type="radio" name="q28" value="Tartrate-resistant acid phosphatase stain"> Tartrate-resistant acid phosphatase stain</label>
+                <label><input type="radio" name="q28" value="Leukocyte alkaline phosphatase"> Leukocyte alkaline phosphatase</label>
+                <label><input type="radio" name="q28" value="Auramine O stain"> Auramine O stain</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-29">
+            <p>29. 38-year-old female patient presents to the emergency department with severe abdominal pain, nausea and vomiting. She also reports reduced sensation in the bilateral lower limb extremities. She appears highly agitated and labile in mood. Her partner reports that this has happened about 6 times before and various suspected diagnoses were made for these past episodes but no definite diagnosis was ever made. She reports that her mother also gets such episodes. These past suspected diagnoses include acute appendicitis, renal calculi, acute intestinal obstruction. They were all found to be negative. What is the likely diagnosis to account for this clinical presentation?</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="Acute intermittent porphyria"> Acute intermittent porphyria</label>
+                <label><input type="radio" name="q29" value="Porphyria cutanea tarda"> Porphyria cutanea tarda</label>
+                <label><input type="radio" name="q29" value="Lead poisoning"> Lead poisoning</label>
+                <label><input type="radio" name="q29" value="Neurotic disorder"> Neurotic disorder</label>
+                <label><input type="radio" name="q29" value="Multiple sclerosis"> Multiple sclerosis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-30">
+            <p>30. Mode of inheritance of acute intermittent porphyria?</p>
+            <div class="options">
+                <label><input type="radio" name="q30" value="Autosomal dominant"> Autosomal dominant</label>
+                <label><input type="radio" name="q30" value="Autosomal recessive"> Autosomal recessive</label>
+                <label><input type="radio" name="q30" value="X linked dominant"> X linked dominant</label>
+                <label><input type="radio" name="q30" value="X linked recessive"> X linked recessive</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-31">
+            <p>31. Acute intermittent porphyria is due to a defect in:</p>
+            <div class="options">
+                <label><input type="radio" name="q31" value="ALA synthetase"> ALA synthetase</label>
+                <label><input type="radio" name="q31" value="PPG oxidase"> PPG oxidase</label>
+                <label><input type="radio" name="q31" value="Uroporphyrinogen decarboxylase"> Uroporphyrinogen decarboxylase</label>
+                <label><input type="radio" name="q31" value="Ferrochelatase"> Ferrochelatase</label>
+                <label><input type="radio" name="q31" value="Porphobilinogen deaminase"> Porphobilinogen deaminase</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-32">
+            <p>32. 23-year-old woman is admitted to the acute medical unit with an acute history of diffuse abdominal pain and constipation. She also reports burning pains in her legs associated with hyperaesthesia. A psychiatric review has also been requested as the patient is experiencing auditory hallucinations, with no history of mental health diagnoses. On examination she is tachycardia and proximal muscle weakness is also noted. She has no significant past medical history, although has recently changed her diet in a bid to lose weight. Which single investigation is likely to be diagnostic?</p>
+            <div class="options">
+                <label><input type="radio" name="q32" value="Delta-aminolevulinic acid"> Delta-aminolevulinic acid</label>
+                <label><input type="radio" name="q32" value="Faecal total porphyrins"> Faecal total porphyrins</label>
+                <label><input type="radio" name="q32" value="Plasma total porphyrins"> Plasma total porphyrins</label>
+                <label><input type="radio" name="q32" value="Urine porphobilinogen"> Urine porphobilinogen</label>
+                <label><input type="radio" name="q32" value="Urine total porphyrins"> Urine total porphyrins</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-33">
+            <p>33. All of the following produce microcytic anaemia EXCEPT:-</p>
+            <div class="options">
+                <label><input type="radio" name="q33" value="Sideroblastic anaemia"> Sideroblastic anaemia</label>
+                <label><input type="radio" name="q33" value="Thalassemia"> Thalassemia</label>
+                <label><input type="radio" name="q33" value="Pernicious anaemia"> Pernicious anaemia</label>
+                <label><input type="radio" name="q33" value="Lead poisoning"> Lead poisoning</label>
+                <label><input type="radio" name="q33" value="Iron deficiency anaemia"> Iron deficiency anaemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-34">
+            <p>34. 44-year-old Asian female presents with a two-month history of shortness of breath and lethargy. She denies any intolerance to the cold or any changes in her weight and on examination appears slightly pale. She states that she has recently become a vegetarian. A blood film shows the presence of elliptocytes and blood results show the following:<br>
+            Haemoglobin 9.9 g/dL<br>
+            Mean cell volume (MCV) 75 fL<br>
+            Ferritin Low<br>
+            The most likely diagnosis is:-</p>
+            <div class="options">
+                <label><input type="radio" name="q34" value="Iron deficiency anaemia"> Iron deficiency anaemia</label>
+                <label><input type="radio" name="q34" value="Sideroblastic anaemia"> Sideroblastic anaemia</label>
+                <label><input type="radio" name="q34" value="Anaemia of chronic disease"> Anaemia of chronic disease</label>
+                <label><input type="radio" name="q34" value="Thalassaemia trait"> Thalassaemia trait</label>
+                <label><input type="radio" name="q34" value="Hereditary elliptocytosis"> Hereditary elliptocytosis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-35">
+            <p>35. 38-year-old woman with a history of inflammatory bowel disease complains of worsening fatigue over the last 1–2 months. Her gastrointestinal disease has been stable for the past year on infliximab. Physical examination is unremarkable, including heme-negative stool. Her hemoglobin has fallen from 11 g/dL to 8 g/dL since last checked 6 months ago. Additionally, her serum iron and ferritin, which were both normal 6 months ago, are now low. Her blood smear shows anisocytosis, poikilocytosis and pencil cells. Which of the following is the most likely aetiology of her new anemia?</p>
+            <div class="options">
+                <label><input type="radio" name="q35" value="Folate deficiency"> Folate deficiency</label>
+                <label><input type="radio" name="q35" value="Inflammation"> Inflammation</label>
+                <label><input type="radio" name="q35" value="Iron deficiency"> Iron deficiency</label>
+                <label><input type="radio" name="q35" value="Sideroblastic anemia"> Sideroblastic anemia</label>
+                <label><input type="radio" name="q35" value="Vitamin B12 deficiency"> Vitamin B12 deficiency</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-36">
+            <p>36. 4-month-old infant is anaemic with a haemoglobin level of 9.5 g/dL and MCV 77 fL. The baby looks well, the height and weight growth parameters are normal, and she is breast-feeding well. Which of the following is the most likely cause for her anaemia?</p>
+            <div class="options">
+                <label><input type="radio" name="q36" value="inadequate dietary iron"> inadequate dietary iron</label>
+                <label><input type="radio" name="q36" value="hemolysis"> hemolysis</label>
+                <label><input type="radio" name="q36" value="late clamping of cord"> late clamping of cord</label>
+                <label><input type="radio" name="q36" value="iron malabsorption"> iron malabsorption</label>
+                <label><input type="radio" name="q36" value="folate deficiency"> folate deficiency</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-37">
+            <p>37. Which of the following proteins is most responsible for iron transport in the plasma?</p>
+            <div class="options">
+                <label><input type="radio" name="q37" value="Albumin"> Albumin</label>
+                <label><input type="radio" name="q37" value="Ferritin"> Ferritin</label>
+                <label><input type="radio" name="q37" value="Haptoglobin"> Haptoglobin</label>
+                <label><input type="radio" name="q37" value="Haemoglobin"> Haemoglobin</label>
+                <label><input type="radio" name="q37" value="Transferrin"> Transferrin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-38">
+            <p>38. 29-year-old woman complains of a 1-week history of weakness and malaise, she has recently become a vegetarian and eats mostly green vegetables and drinks lots of tea during the day. She is apyrexial and has a C-reactive protein (CRP) <5. You suspect an abnormality of the patient’s iron stores. What is the most appropriate investigation to determine iron store levels?</p>
+            <div class="options">
+                <label><input type="radio" name="q38" value="Bone marrow biopsy"> Bone marrow biopsy</label>
+                <label><input type="radio" name="q38" value="Serum ferritin"> Serum ferritin</label>
+                <label><input type="radio" name="q38" value="Serum transferrin"> Serum transferrin</label>
+                <label><input type="radio" name="q38" value="Total iron binding capacity"> Total iron binding capacity</label>
+                <label><input type="radio" name="q38" value="Serum iron"> Serum iron</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-39">
+            <p>39. Each one of the following is associated with iron-deficiency anaemia, except:-</p>
+            <div class="options">
+                <label><input type="radio" name="q39" value="Atrophic glossitis"> Atrophic glossitis</label>
+                <label><input type="radio" name="q39" value="Onycholysis"> Onycholysis</label>
+                <label><input type="radio" name="q39" value="Post-cricoid webs"> Post-cricoid webs</label>
+                <label><input type="radio" name="q39" value="Koilonychia"> Koilonychia</label>
+                <label><input type="radio" name="q39" value="Angular stomatitis"> Angular stomatitis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-40">
+            <p>40. Plummer-Vinson syndrome is not associated with:-</p>
+            <div class="options">
+                <label><input type="radio" name="q40" value="Angular stomatitis"> Angular stomatitis</label>
+                <label><input type="radio" name="q40" value="Dysphagia"> Dysphagia</label>
+                <label><input type="radio" name="q40" value="Clubbing"> Clubbing</label>
+                <label><input type="radio" name="q40" value="Post-cricoid web"> Post-cricoid web</label>
+                <label><input type="radio" name="q40" value="Pica"> Pica</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-41">
+            <p> 41. 30 years old woman complains of fatigue and dyspnea for past 2 months with weight loss. CBC reveals normochromic normocytic anemia with increased ferritin, normal platelets and normal leucocytes .. what is your diagnosis ?</p>
+            <div class="options">
+                <label><input type="radio" name="q41" value="Anemia of chronic disease"> Anemia of chronic disease</label>
+                <label><input type="radio" name="q41" value="Aplastic anemia"> Aplastic anemia</label>
+                <label><input type="radio" name="q41" value="Lead poisoning"> Lead poisoning</label>
+                <label><input type="radio" name="q41" value="Spherocytosis"> Spherocytosis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-42">
+            <p> 42. A man is investigated for anaemia. A blood film is ordered and reported as follows: Ring sideroblasts 
+            Which one of the following is least likely to give this picture? </p>
+            <div class="options">
+                <label><input type="radio" name="q42" value="Anti-tuberculosis medication"> Anti-tuberculosis medication</label>
+                <label><input type="radio" name="q42" value="Alcohol"> Alcohol</label>
+                <label><input type="radio" name="q42" value="Pyridoxine"> Pyridoxine</label>
+                <label><input type="radio" name="q42" value="Lead"> Lead</label>
+                <label><input type="radio" name="q42" value="Myelodysplasia"> Myelodysplasia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-43">
+            <p> 43. 38-year-old Pakistani female was admitted with shortness of breath and a syncopal episode. She describes a 2 week history of lethargy, malaise and dizziness. The patient had recently started anti-tuberculous therapy. History revealed she was not a vegetarian. 
+            Hb 8.5 g/dl
+            MCV 72 fl
+            WCC 11 * 10^9/l
+            Platelets 225 * 10^9/l
+            TSAT 33%
+            Ferritin 600 ng/ml
+            Haemoglobin electrophoresis : normal
+            Which stain should be applied to a blood film?</p>
+            <div class="options">
+                <label><input type="radio" name="q43" value="Giemsa"> Giemsa</label>
+                <label><input type="radio" name="q43" value="Gram"> Gram</label>
+                <label><input type="radio" name="q43" value="Ziehl Neelsen"> Ziehl Neelsen</label>
+                <label><input type="radio" name="q43" value="Perl's"> Perl's</label>
+                <label><input type="radio" name="q43" value="India ink"> India ink</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-44">
+            <p> 44. Basophilic stippling is classically seen in :</p>
+            <div class="options">
+                <label><input type="radio" name="q44" value="Chronic myeloid leukaemia"> Chronic myeloid leukaemia</label>
+                <label><input type="radio" name="q44" value="Myelosclerosis"> Myelosclerosis</label>
+                <label><input type="radio" name="q44" value="Chronic lead poisoning"> Chronic lead poisoning</label>
+                <label><input type="radio" name="q44" value="Iron deficiency anaemia"> Iron deficiency anaemia</label>
+                <label><input type="radio" name="q44" value="Basophilic leukaemia"> Basophilic leukaemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-45">
+            <p> 45. 32-year-old demolitions worker comes to the haematology clinic for review. He has suffered from abdominal pain and lethargy for the past few months, and his GP has noted a microcytic anaemia. Over the past few weeks he has begun tripping over because of weakness of both lower legs. His blood pressure is 123/82 mmHg, pulse is 82 beats per minute and regular. The abdomen is soft and non tender, the body mass index is 23 kg/m² and there is bilateral weakness of ankle dorsiflexion.
+            Investigations show the following:</p>
+            <p>Hb 98 g/l
+            MCV 77 fL
+            Blood film:  Basophilic stippling
+            Platelets 203 * 10 /l
+            WBC 7.1 * 10 /l
+            What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q45" value="Iron deficiency anaemia"> Iron deficiency anaemia</label>
+                <label><input type="radio" name="q45" value="Lead poisoning"> Lead poisoning</label>
+                <label><input type="radio" name="q45" value="Porphyria cutanea tarda"> Porphyria cutanea tarda</label>
+                <label><input type="radio" name="q45" value="Thalassaemia trait"> Thalassaemia trait</label>
+                <label><input type="radio" name="q45" value="Wilson's disease"> Wilson's disease</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-46">
+            <p> 46. 54-year-old man is investigated for recurrent episodes of abdominal pain associated with weakness of his arms and legs. Which one of the following urine tests would best indicate lead toxicity?</p>
+            <div class="options">
+                <label><input type="radio" name="q46" value="Haemoglobinuria"> Haemoglobinuria</label>
+                <label><input type="radio" name="q46" value="Coproporphyrin"> Coproporphyrin</label>
+                <label><input type="radio" name="q46" value="Porphobilinogen"> Porphobilinogen</label>
+                <label><input type="radio" name="q46" value="Uroporphyrin"> Uroporphyrin</label>
+                <label><input type="radio" name="q46" value="Ham's test"> Ham's test</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-47">
+            <p> 47. Which one of the following is least associated with lead poisoning?</p>
+            <div class="options">
+                <label><input type="radio" name="q47" value="Peripheral neuropathy"> Peripheral neuropathy</label>
+                <label><input type="radio" name="q47" value="Acute glomerulonephritis"> Acute glomerulonephritis</label>
+                <label><input type="radio" name="q47" value="Blue lines on gum margin"> Blue lines on gum margin</label>
+                <label><input type="radio" name="q47" value="Abdominal pain"> Abdominal pain</label>
+                <label><input type="radio" name="q47" value="Microcytic anaemia"> Microcytic anaemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-48">
+            <p> 48. 17-year-old male is diagnosed with alpha-thalassaemia. What chromosome is the alpha-globulin genes located on?</p>
+            <div class="options">
+                <label><input type="radio" name="q48" value="Chromosome 4"> Chromosome 4</label>
+                <label><input type="radio" name="q48" value="Chromosome 8"> Chromosome 8</label>
+                <label><input type="radio" name="q48" value="Chromosome 12"> Chromosome 12</label>
+                <label><input type="radio" name="q48" value="Chromosome 16"> Chromosome 16</label>
+                <label><input type="radio" name="q48" value="Chromosome 20"> Chromosome 20</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-49">
+            <p> 49. 23-year-old woman presents with lethargy. 
+            The following blood results are obtained:</p>
+            <p>Hb 10.4 g/dl 
+            Plt 278 * 10 9/l
+            WBC 6.3 * 10 9 /l 
+            MCV 68 fl 
+            Blood film Microcytic hypochromic RBCs, marked anisocytosis noted 
+            HbA2  3.9% 
+            What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q49" value="Lead poisoning"> Lead poisoning</label>
+                <label><input type="radio" name="q49" value="Sickle cell anaemia"> Sickle cell anaemia</label>
+                <label><input type="radio" name="q49" value="Beta-thalassaemia trait"> Beta-thalassaemia trait</label>
+                <label><input type="radio" name="q49" value="Hereditary spherocytosis"> Hereditary spherocytosis</label>
+                <label><input type="radio" name="q49" value="Sideroblastic anaemia"> Sideroblastic anaemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-50">
+            <p> 50. 18-year-old man is recently diagnosed with beta-thalassemia minor. His haemoglobin is 10.5 g/dL, and he feels well. Which of the following findings is characteristic of this condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q50" value="an increased amount of foetal haemoglobin (HbF) or haemoglobin A2 (HbA2)"> an increased amount of foetal haemoglobin (HbF) or haemoglobin A2 (HbA2)</label>
+                <label><input type="radio" name="q50" value="increased osmotic fragility of the red cells"> increased osmotic fragility of the red cells</label>
+                <label><input type="radio" name="q50" value="absent bone marrow iron"> absent bone marrow iron</label>
+                <label><input type="radio" name="q50" value="increased macroglobulins in the serum"> increased macroglobulins in the serum</label>
+                <label><input type="radio" name="q50" value="small amounts of HbS"> small amounts of HbS</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-51">
+            <p>51. 22-year-old medical student donates his blood as part of a clinical study. He is discovered to have persistent HbF (foetal haemoglobin) levels. He feels well, and his clinical examination is normal. Which of the following features about this condition is most likely true?</p>
+            <div class="options">
+                <label><input type="radio" name="q51" value="cause of sickling red cells"> cause of sickling red cells</label>
+                <label><input type="radio" name="q51" value="disease of infants only"> disease of infants only</label>
+                <label><input type="radio" name="q51" value="variant of thalassemia major"> variant of thalassemia major</label>
+                <label><input type="radio" name="q51" value="anaemia exacerbated by fava beans"> anaemia exacerbated by fava beans</label>
+                <label><input type="radio" name="q51" value="benign genetic abnormality"> benign genetic abnormality</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-52">
+            <p>52. 7-year-old boy has severe microcytic anemia due to beta-thalassemia major (homozygous). He requires frequent blood transfusions (once every 6 weeks) to prevent the skeletal and developmental complications of thalassemia. Which of the following medications is also indicated in the treatment of patients requiring frequent blood transfusions?</p>
+            <div class="options">
+                <label><input type="radio" name="q52" value="oral calcium supplements"> oral calcium supplements</label>
+                <label><input type="radio" name="q52" value="fresh frozen plasma"> fresh frozen plasma</label>
+                <label><input type="radio" name="q52" value="desferrioxamine"> desferrioxamine</label>
+                <label><input type="radio" name="q52" value="penicillamine"> penicillamine</label>
+                <label><input type="radio" name="q52" value="cryoprecipitate"> cryoprecipitate</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-53">
+            <p>53. Microcytic hypochromic anemia with target cells on blood film. What is your diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q53" value="Thalassemia"> Thalassemia</label>
+                <label><input type="radio" name="q53" value="Sideroblastic anemia"> Sideroblastic anemia</label>
+                <label><input type="radio" name="q53" value="Paroxysmal nocturnal hemoglobinuria"> Paroxysmal nocturnal hemoglobinuria</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-54">
+            <p>54. Each one of the following is associated with hyposplenism except:</p>
+            <div class="options">
+                <label><input type="radio" name="q54" value="Sickle-cell anaemia"> Sickle-cell anaemia</label>
+                <label><input type="radio" name="q54" value="Liver cirrhosis"> Liver cirrhosis</label>
+                <label><input type="radio" name="q54" value="Systemic lupus erythematous"> Systemic lupus erythematous</label>
+                <label><input type="radio" name="q54" value="Coeliac disease"> Coeliac disease</label>
+                <label><input type="radio" name="q54" value="Splenectomy"> Splenectomy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-55">
+            <p>55. Which of the following does not have target cells in peripheral blood?</p>
+            <div class="options">
+                <label><input type="radio" name="q55" value="Lymphoma"> Lymphoma</label>
+                <label><input type="radio" name="q55" value="Cholestatic jaundice"> Cholestatic jaundice</label>
+                <label><input type="radio" name="q55" value="Thalassemia"> Thalassemia</label>
+                <label><input type="radio" name="q55" value="Iron deficiency anaemia"> Iron deficiency anaemia</label>
+                <label><input type="radio" name="q55" value="Hyposplenism"> Hyposplenism</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-56">
+            <p>56. Commonest cause of jaundice in thalassemia is:</p>
+            <div class="options">
+                <label><input type="radio" name="q56" value="Viral hepatitis C"> Viral hepatitis C</label>
+                <label><input type="radio" name="q56" value="Iron deposition in liver"> Iron deposition in liver</label>
+                <label><input type="radio" name="q56" value="Viral hepatitis B"> Viral hepatitis B</label>
+                <label><input type="radio" name="q56" value="Hemolysis"> Hemolysis</label>
+                <label><input type="radio" name="q56" value="Gall stones"> Gall stones</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-57">
+            <p>57. Thalassemia major may be associated with all EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q57" value="Cardiac arrhythmia"> Cardiac arrhythmia</label>
+                <label><input type="radio" name="q57" value="Cardiac tamponade"> Cardiac tamponade</label>
+                <label><input type="radio" name="q57" value="Congestive cardiac failure"> Congestive cardiac failure</label>
+                <label><input type="radio" name="q57" value="Cardiomegaly"> Cardiomegaly</label>
+                <label><input type="radio" name="q57" value="Hypersplenism"> Hypersplenism</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-58">
+            <p>58. A blood film is reported as follows: Howell-Jolly bodies, target cells and occasional Pappenheimer bodies are seen. What is the most likely underlying cause?</p>
+            <div class="options">
+                <label><input type="radio" name="q58" value="Iron-deficiency anaemia"> Iron-deficiency anaemia</label>
+                <label><input type="radio" name="q58" value="Lead poisoning"> Lead poisoning</label>
+                <label><input type="radio" name="q58" value="Myelofibrosis"> Myelofibrosis</label>
+                <label><input type="radio" name="q58" value="Sideroblastic anaemia"> Sideroblastic anaemia</label>
+                <label><input type="radio" name="q58" value="Post-splenectomy"> Post-splenectomy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-59">
+            <p>59. 21 years old man is assessed for splenectomy. When should pneumococcal vaccine be administered?</p>
+            <div class="options">
+                <label><input type="radio" name="q59" value="At least one week before surgery"> At least one week before surgery</label>
+                <label><input type="radio" name="q59" value="At least two weeks before surgery"> At least two weeks before surgery</label>
+                <label><input type="radio" name="q59" value="One week after surgery"> One week after surgery</label>
+                <label><input type="radio" name="q59" value="One month after surgery"> One month after surgery</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-60">
+            <p>60. A full blood count for a 38-year-old man is reported as follows:
+                Hb 12.9 g/dl
+                Platelets 225 * 10 9/l
+                WBC 6.2 * 10 9/l
+                Film Numerous Howell-Jolly bodies and pencil cells seen.
+                Which one of the following conditions is most likely to produce these results?</p>
+            <div class="options">
+                <label><input type="radio" name="q60" value="Coeliac disease"> Coeliac disease</label>
+                <label><input type="radio" name="q60" value="HIV infection"> HIV infection</label>
+                <label><input type="radio" name="q60" value="Sickle-cell trait"> Sickle-cell trait</label>
+                <label><input type="radio" name="q60" value="Autoimmune hemolytic anaemia"> Autoimmune hemolytic anaemia</label>
+                <label><input type="radio" name="q60" value="Liver disease"> Liver disease</label>
+            </div>
+        </div>
+
+        <button class="btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+        <button class="btn" id="submitBtn" onclick="evaluateQuiz()" style="display: none;">Submit Quiz</button>
+
+        <div class="result" id="result">
+            <h2>Results</h2>
+            <div id="score"></div>
+            <div id="answers-summary"></div>
+        </div>
+    </div>
+
+    <script>
+        // إضافة حدث للكيبورد لمنع حفظ الصفحة
+        document.addEventListener("keydown", function (event) {
+            if (event.ctrlKey && event.key === "s") {
+                event.preventDefault();
+                alert("تم منع حفظ الصفحة!");
+            }
+        });
+
+        // إضافة حدث للكيبورد لمنع فتح أدوات المطور
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+                event.preventDefault();
+                alert("تم تعطيل أدوات المطور!");
+            }
+        });
+
+        // إضافة حدث للكيبورد لمنع النقر بزر اليمين
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // يمنع فتح قائمة السياق
+            alert("النقر بزر الماوس الأيمن غير مسموح به.");
+        });
+
+        let currentQuestion = 1;
+        const totalQuestions = 25;
+        let score = 0;
+        let timerInterval;
+        const answers = {
+            q1: "Chronic lymphocytic leukaemia",
+            q2: "Monoclonal proliferation of B-cell lymphocytes",
+            q3: "immunophenotyping",
+            q4: "Female sex",
+            q5: "Warm autoimmune haemolytic anaemia",
+            q6: "Hypogammaglobulinaemia",
+            q7: "No treatment + go ahead with operation",
+            q8: "Lymphocyte count of 65 * 10 9/l",
+            q9: "Fludarabine, cyclophosphamide and rituximab",
+            q10: "Chronic myeloid leukemia",
+            q11: "Chronic myeloid leukaemia",
+            q12: "Chronic myeloid leukemia",
+            q13: "reciprocal translocation of 9 and 22 (Philadelphia chromosome)",
+            q14: "Imatinib",
+            q15: "Tyrosine kinase inhibitor",
+            q16: "stimulating tyrosine kinase",
+            q17: "Acute myeloid leukaemia",
+            q18: "Auer bodies in blast cells",
+            q19: "Cytogenetics",
+            q20: "Translocation between chromosome 15 and 17",
+            q21: "Deletions of chromosome 5",
+            q22: "T ( 15:17)",
+            q23: "CMV",
+            q24: "Acute myeloblastic leukaemia",
+            q25: "Philadelphia chromosome positive",
+            q26: "Hypodiploidy",
+            q27: "Direct microscopy of bone marrow cells",
+            q28: "Sudan black B",
+            q29: "Acute intermittent porphyria",
+            q30: "Autosomal dominant",
+            q31: "Porphobilinogen deaminase",
+            q32: "Urine porphobilinogen",
+            q33: "Pernicious anaemia",
+            q34: "Iron deficiency anaemia",
+            q35: "Iron deficiency",
+            q36: "inadequate dietary iron",
+            q37: "Transferrin",
+            q38: "Serum ferritin",
+            q39: "Onycholysis",
+            q40: "Clubbing",
+            q41: "Anemia of chronic disease",
+            q42: "Pyridoxine",
+            q43: "Perl's",
+            q44: "Chronic lead poisoning",
+            q45: "Lead poisoning",
+            q46: "Coproporphyrin",
+            q47: "Acute glomerulonephritis",
+            q48: "Chromosome 16",
+            q49: "Beta-thalassaemia trait",
+            q50: "an increased amount of foetal haemoglobin (HbF) or haemoglobin A2 (HbA2)",
+            q51: "variant of thalassemia major",
+            q52: "desferrioxamine",
+            q53: "Thalassemia",
+            q54: "Liver cirrhosis",
+            q55: "Lymphoma",
+            q56: "Hemolysis",
+            q57: "Cardiac tamponade",
+            q58: "Post-splenectomy",
+            q59: "At least two weeks before surgery",
+            q60: "Coeliac disease"
+        };
+
+        function showQuestion() {
+            document.querySelectorAll('.question').forEach((q, index) => {
+                q .style.display = index + 1 === currentQuestion ? 'block' : 'none';
+            });
+            document.getElementById('nextBtn').style.display = currentQuestion < totalQuestions ? 'block' : 'none';
+            document.getElementById('submitBtn').style.display = currentQuestion === totalQuestions ? 'block' : 'none';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            clearInterval(timerInterval);
+            startTimer();
+            showQuestion();
+        }
+
+        function startTimer() {
+            let timeRemaining = 60;
+            document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    if (currentQuestion < totalQuestions) {
+                        nextQuestion();
+                    } else {
+                        evaluateQuiz();
+                    }
+                }
+            }, 1000);
+        }
+
+        function evaluateQuiz() {
+            score = 0;
+            let summary = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const correctAnswer = answers[`q${i}`];
+                const questionElement = document.getElementById(`question-${i}`);
+                const options = document.querySelectorAll(`input[name="q${i}"]`);
+                let questionSummary = `<p><strong>Question ${i}: </strong>${questionElement.querySelector('p').innerText}</p>`;
+
+                options.forEach(option => {
+                    const optionLabel = option.parentElement;
+                    if (option.value === correctAnswer) {
+                        optionLabel.style.color = 'green';
+                    } else if (selectedOption && selectedOption.value === option.value) {
+                        optionLabel.style.color = 'red';
+                    }
+                });
+
+                questionSummary += `<div>Answer: <strong>${selectedOption ? selectedOption.value : 'None selected'}</strong></div>`;
+                questionSummary += `<div>Correct answer: <strong>${correctAnswer}</strong></div>`;
+
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                    summary += questionSummary + `<p class="correct">Correct</p>`;
+                } else {
+                    summary += questionSummary + `<p class="incorrect">Incorrect</p>`;
+                }
+            }
+
+            document.getElementById('score').textContent = `Your score: ${score} out of ${totalQuestions}`;
+            document.getElementById('answers-summary').innerHTML = summary;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('timer').style.display = 'none'; 
+            document.querySelectorAll('.question').forEach((q) => q.style.display = 'none');
+
+            clearInterval(timerInterval);
+        }
+
+        window.onload = function() {
+            showQuestion();
+            startTimer();
+        };
+        
+        
+        function nextQuestion() {
+    // Increase the current question counter
+            currentQuestion++;
+
+            // Reset the timer
+            clearInterval(timerInterval); // Stop the current timer
+            startTimer(); // Start the timer from the beginning
+
+            // Show the next question
+            showQuestion();
+        }
+        
+    </script>
+</body>
+</html>
